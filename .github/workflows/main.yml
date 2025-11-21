@@ -72,15 +72,6 @@ jobs:
           poetry config virtualenvs.create false
           poetry config virtualenvs.in-project false
 
-      # (Optional but often handy) cache Poetry's virtualenv-less install
-      - name: Cache Poetry dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pypoetry
-          key: poetry-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            poetry-${{ runner.os }}-${{ matrix.python-version }}-
-
       - name: Install project dependencies with Poetry
         run: |
           poetry install --with dev --all-extras
