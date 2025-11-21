@@ -44,7 +44,7 @@ jobs:
           environment-name: openeo_processes_dask
           create-args: >-
             python=${{ matrix.python-version }}
-            gdal
+            gdal=3.11.*
             proj
             geos
             pip
